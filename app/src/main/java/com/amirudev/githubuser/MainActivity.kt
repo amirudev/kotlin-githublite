@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 searchView.clearFocus()
 
                 Intent(this@MainActivity, SearchActivity::class.java).also {
-                    it.putExtra(SearchActivity.EXTRA_QUERY, query)
+                    it.putExtra(SearchActivity.EXTRA_USERNAME, query)
                     startActivity(it)
                 }
 

@@ -5,7 +5,7 @@
         <item name="cornerSize">50%</item>
     </style>
 
-    <style name="ToolbarColoredBackArrow" parent="Theme.MaterialComponents">
-        <item name="android:textColorSecondary">@color/white</item>
-    </style>
+<!--    <style name="ToolbarColoredBackArrow" parent="Theme.MaterialComponents">-->
+<!--        <item name="android:textColorSecondary">@color/white</item>-->
+<!--    </style>-->
 </resources>

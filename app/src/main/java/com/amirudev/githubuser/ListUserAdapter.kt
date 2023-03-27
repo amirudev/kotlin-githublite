@@ -8,7 +8,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class ListUserAdapter(private val listUser: List<UserFollowResponseItem>): RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
+class ListUserAdapter(
+    private val listUser: List<UserFollowResponseItem>,
+    private val listener: onItemClickListener): RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
+
+    interface onItemClickListener {
+        fun onItemClick(data: UserFollowResponseItem)
+    }
+
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvUserUsernameItem: TextView = itemView.findViewById(R.id.tv_user_username_item)
         val tvUserUrlItem: TextView = itemView.findViewById(R.id.tv_user_url_item)
@@ -30,5 +37,9 @@ class ListUserAdapter(private val listUser: List<UserFollowResponseItem>): Recyc
 
         val imageView: ImageView = holder.imgUserPhotoItem
         Glide.with(holder.itemView.context).load(avatarUrl).into(imageView)
+
+        holder.itemView.setOnClickListener {
+            listener.onItemClick(listUser[position])
+        }
     }
 }
