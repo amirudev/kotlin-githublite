@@ -1,5 +1,8 @@
-package com.amirudev.githubuser
+package com.amirudev.githubuser.network
 
+import com.amirudev.githubuser.UserFollowResponseItem
+import com.amirudev.githubuser.UserResponse
+import com.amirudev.githubuser.UserSearchResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -16,9 +19,6 @@ interface ApiService {
     @GET("users/{username}")
     fun getUserDetail(@Path("username") username: String): Call<UserResponse>
 
-//    Get Search result of specific username
-//    @GET("search/users?q={username}")
     @GET("search/users")
     fun getSearchResult(@Query("q") query: String): Call<UserSearchResponse>
-//    fun getSearchResult(@Path("username") username: String): Call<UserSearchResponse>
 }

@@ -11,4 +11,5 @@
     <string name="follower_following_tabs">Follower / Following Tabs</string>
     <string name="zero">0</string>
     <string name="todo">TODO</string>
+    <string name="favorites">Favorites</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.amirudev.githubuser
+package com.amirudev.githubuser.ui.activities
 
 import android.app.SearchManager
 import android.content.Context
@@ -9,10 +9,9 @@ import android.view.Menu
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.SearchView
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.amirudev.githubuser.R
+import com.amirudev.githubuser.SectionsPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -20,8 +19,9 @@ class MainActivity : AppCompatActivity() {
     companion object {
         @StringRes
         private val TAB_TITLES = intArrayOf(
-            R.string.follower,
-            R.string.following
+            R.string.followers,
+            R.string.following,
+            R.string.favorites,
         )
     }
 

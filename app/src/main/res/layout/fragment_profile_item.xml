@@ -8,7 +8,7 @@
     android:orientation="horizontal"
     android:padding="16dp"
     android:id="@+id/profile_item"
-    tools:context=".ProfileItemFragment">
+    tools:context=".ui.fragments.ProfileItemFragment">
 
     <com.google.android.material.imageview.ShapeableImageView
          android:layout_height="48dp"

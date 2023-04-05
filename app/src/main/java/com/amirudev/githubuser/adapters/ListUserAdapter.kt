@@ -1,4 +1,4 @@
-package com.amirudev.githubuser
+package com.amirudev.githubuser.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,14 +6,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.amirudev.githubuser.R
+import com.amirudev.githubuser.UserFollowResponseItem
+import com.amirudev.githubuser.models.User
 import com.bumptech.glide.Glide
 
 class ListUserAdapter(
-    private val listUser: List<UserFollowResponseItem>,
-    private val listener: onItemClickListener): RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
+    private val listUser: List<User>,
+    private val listener: onItemClickListener
+): RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
 
     interface onItemClickListener {
-        fun onItemClick(data: UserFollowResponseItem)
+        fun onItemClick(data: User)
     }
 
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -30,13 +34,13 @@ class ListUserAdapter(
     override fun getItemCount(): Int = listUser.size
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (avatarUrl, id, login, url) = listUser[position]
+        val user: User = listUser[position]
 
-        holder.tvUserUsernameItem.text = login
-        holder.tvUserUrlItem.text = url.toString()
+        holder.tvUserUsernameItem.text = user.login
+        holder.tvUserUrlItem.text = user.html_url.toString()
 
         val imageView: ImageView = holder.imgUserPhotoItem
-        Glide.with(holder.itemView.context).load(avatarUrl).into(imageView)
+        Glide.with(holder.itemView.context).load(user.avatar_url).into(imageView)
 
         holder.itemView.setOnClickListener {
             listener.onItemClick(listUser[position])
